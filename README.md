@@ -2,7 +2,7 @@ Botapio de cancelaños y días internacionales.
 
 Busca en internet que famosos cumplen y luego en diainternacionalde.com scrapea desvergonzadamente la info.
 
-A los prompts se le añaden referencias y chascarrillos de forma aleatoria para que sea personalizado pero no repetitivo a través de frases aleatorias de una lista.
+A los prompts se le añaden referencias y chascarrillos de forma aleatoria para que sea personalizado pero no repetitivo a través de frases al azar de una lista.
 
 TO DO:
 - [X] Cancelaños
