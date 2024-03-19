@@ -9,5 +9,5 @@ TO DO:
 - [X] Días internacionales
 - [X] Checkear twitch
 - [ ] Error handling
-- [ ] Programar el envío
+- [X] Programar el envío
 - [ ] Encontrar un server (soy pobre)
