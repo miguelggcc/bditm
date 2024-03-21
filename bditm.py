@@ -32,10 +32,7 @@ def get_prompt(screenplay, extra, date):
     text = open(screenplay, "r", encoding='utf-8').read()
     return text.replace('$', date) + " " + random_line((open(extra, "r", encoding='utf-8')))
 
-
-@tasks.loop(time=trigger_time)
-async def trigger():
-    channel = discord.utils.get(bot.get_all_channels(), name="general")
+async def message(channel):
     locale.setlocale(locale.LC_TIME, 'es_ES')
     d = date.today().strftime("%d de %B")
 
@@ -59,6 +56,11 @@ async def trigger():
         await channel.send(re.sub('\[\^\d\^\]', '', ids_response))
 
         await sydney.close_conversation()
+        
+@tasks.loop(time=trigger_time)
+async def trigger():
+    channel = discord.utils.get(bot.get_all_channels(), name="general")
+    await message(channel)
 
 
 @bot.event
@@ -73,7 +75,10 @@ async def before_trigger():
     print('waiting...')
     await bot.wait_until_ready()
 
-
+@bot.command()
+async def now(ctx):
+    await message(ctx.channel)
+    
 @bot.command()
 async def is_running(ctx):
     if trigger.is_running():
